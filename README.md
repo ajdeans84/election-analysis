@@ -42,6 +42,20 @@ Our code is already fairly versatile and can be adapted for use for other electi
 
 However, the code is written assuming that the data will be organized in the same way for each data source file - namely, the candidates being listed in the third column and counties listed in the second column. In order to prevent the code creating an issue for other elections, we can set a variable such as column_number and the user can input which column number the candidate or county name appears in. Then, we can use this variable and run row[column_number - 1] to find the data in the relevant column. Otherwise, the code will only search the second and third columns for county and candidate, which may not be appearing in the same cells. 
 
+Current code;
+```
+for row in reader:
+candidate_name = row[2]
+county_name = row[1]
+```
+
+Suggested code (with variables initialized as column numbers for relevant data);
+```
+for row in reader:
+candidate_name = row[candidate_column_number - 1]
+county_name = row[county_column_number - 1]
+```
+
 Although our code is written for a local congressional election, which means votes are state-wide and can be referenced by county, we can alter our code to instead search for votes cast by state for a federal election, or by city for a county election. The code would not have to change much, other than renaming certain variables to more appropriate names, like state_options or city_vote_count instead of candidate_options and county_vote_count. The code is already adaptable and generic to be able to work with these formats, as long as the code is searching for the correct data in the column it is found in. 
 
 For future elections, this code would need to be adapted to ensure the name of the csv file (or otherwise formatted data source file) was correctly represented in our code, as well as the path for the location of the file.
