@@ -2,7 +2,7 @@
 
 ## Project Overview
 This includes an election audit for a local congressional election, as requested by a Colorado Board of Elections. 
-This involved 
+This involved:
 1. Calculating the total number of votes cast
 2. Creating a list of the candidates who received votes
 3. Counting the number of votes each candidate received
