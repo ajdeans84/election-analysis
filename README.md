@@ -2,7 +2,7 @@
 
 ## Project Overview
 This includes an election audit for a local congressional election, as requested by a Colorado Board of Elections. 
-This involved 
+This involved:
 1. Calculating the total number of votes cast
 2. Creating a list of the candidates who received votes
 3. Counting the number of votes each candidate received
@@ -12,8 +12,8 @@ This involved
 7. Determining the county with the highest voter turnout
 
 ## Resources
-Data source: election_results.csv
-Software: Python 3.7.6, Visual Studio Code 1.61.0
+- Data source: election_results.csv
+- Software: Python 3.7.6, Visual Studio Code 1.61.0
 
 ## Results
 The analysis of the election data gives us the following information:
@@ -32,15 +32,15 @@ The analysis of the election data gives us the following information:
 - The winner of this election was:
     - Diana DeGette, with 272892 votes, or 73.8% of the total votes.
 
-A more visual representation of the results; 
+When ran, the code gives us this output; 
 
   ![results](election_results.png)
 
 
 ## Summary 
-Our code is already fairly versatile and can be adapted for use for other elections with minimal modifications. Instead of listing out the candidates or counties, our code runs through the rows in the data source file and finds each unique entry and creates a list of them. For this reason, this code can easily be applied to other elections, including ones with more or less candidates or counties. 
+The code is already fairly versatile and can be adapted for use for other elections with minimal modifications. Instead of listing out the candidates or counties, our code runs through the rows in the data source file and finds each unique entry and creates a list of them. For this reason, this code can easily be applied to other elections, including ones with more or less candidates or counties. 
 
-However, the code is written assuming that the data will be organized in the same way for each data source file - namely, the candidates being listed in the third column and counties listed in the second column. In order to prevent the code creating an issue for other elections, we can set a variable such as column_number and the user can input which column number the candidate or county name appears in. Then, we can use this variable and run row[column_number - 1] to find the data in the relevant column. Otherwise, the code will only search the second and third columns for county and candidate, which may not be appearing in the same cells. 
+However, this code is written assuming that the data will be organized in the same way for each data source file - namely, the candidates being listed in the third column and counties listed in the second column. In order to prevent the code creating an issue for other elections, we can set a variable such as column_number and the user can input which column number the candidate or county name appears in. Then, we can use this variable and run row[column_number - 1] to find the data in the relevant column. Otherwise, the code will only search the second and third columns for county and candidate, which may not be appearing in the same cells. 
 
 Current code;
 ```
@@ -56,7 +56,7 @@ candidate_name = row[candidate_column_number - 1]
 county_name = row[county_column_number - 1]
 ```
 
-Although our code is written for a local congressional election, which means votes are state-wide and can be referenced by county, we can alter our code to instead search for votes cast by state for a federal election, or by city for a county election. The code would not have to change much, other than renaming certain variables to more appropriate names, like state_options or city_vote_count instead of candidate_options and county_vote_count. The code is already adaptable and generic to be able to work with these formats, as long as the code is searching for the correct data in the column it is found in. 
+Although my code is written for a local congressional election, which means votes are state-wide and can be referenced by county, I can alter the code to instead search for votes cast by state for a federal election, or by city for a county election. The code itself would not have to change much, other than renaming certain variables to more appropriate names, like state_options or city_vote_count instead of candidate_options and county_vote_count. The code is already adaptable and generic to be able to work with these formats, as long as the code is searching for the correct data in the column it is found in. 
 
 For future elections, this code would need to be adapted to ensure the name of the csv file (or otherwise formatted data source file) was correctly represented in our code, as well as the path for the location of the file.
 
